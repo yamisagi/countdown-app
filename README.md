@@ -62,6 +62,11 @@ In this repository, I will make a Countdown App with HTML, CSS, JS.
 
 - [x] Project Setup
 - [x] HTML Structure
+- [x] CSS Styling 
+- [x] Make Counter Section Flex and Center 
+- [x] Add Form and Input & Style Them
+- [x] Add Some Transition
+- [x] Add Button & Effect it with Hover etc.
 
 
 
