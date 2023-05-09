@@ -67,6 +67,16 @@ In this repository, I will make a Countdown App with HTML, CSS, JS.
 - [x] Add Form and Input & Style Them
 - [x] Add Some Transition
 - [x] Add Button & Effect it with Hover etc.
+- [x] Add JS Functionality
+- [x] Add Get Date Functionality to Form
+- [x] Add updateCounter Function
+- [x] Get ID & Classes with querySelector
+- [x] Add Countdown Functionality 
+- [x] Control the Countdown Functionality
+- [x] Set Interval for Countdown
+- [x] Set Message for Countdown & Disappear after 5 Sec.
+- [x] Add Functionality to Button
+
 
 
 
