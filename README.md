@@ -76,6 +76,9 @@ In this repository, I will make a Countdown App with HTML, CSS, JS.
 - [x] Set Interval for Countdown
 - [x] Set Message for Countdown & Disappear after 5 Sec.
 - [x] Add Functionality to Button
+- [x] Make it Responsive to Mobile
+- [x] Add Some Media Queries
+- [x] Project Finished & Ready to Deploy
 
 
 

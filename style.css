@@ -73,3 +73,21 @@ body {
 .countdown-form button:hover {
   background-color: #555;
 }
+
+@media screen and (max-width: 768px) {
+  .countdown-timer {
+    font-size: 3rem;
+  }
+
+  .countdown-form label {
+    font-size: 1rem;
+  }
+
+  .countdown-form input {
+    font-size: 1rem;
+  }
+
+  .countdown-form button {
+    font-size: 1rem;
+  }
+}
