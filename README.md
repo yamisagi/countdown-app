@@ -61,6 +61,8 @@ In this repository, I will make a Countdown App with HTML, CSS, JS.
 ## Roadmap
 
 - [x] Project Setup
+- [x] HTML Structure
+
 
 
 

@@ -8,7 +8,18 @@
     <title>Counter App</title>
   </head>
   <body>
-    
+    <div class="countdown">
+        <div class="countdown-timer">
+          <span class="hours">00</span>
+          <span class="minutes">00</span>
+          <span class="seconds">00</span>
+        </div>
+      </div>
+      <form class="countdown-form">
+        <label for="countdown-input">Countdown Time:</label>
+        <input type="datetime-local" id="countdown-input" name="countdown-input">
+        <button type="submit">Start Countdown</button>
+      </form>
     <script src="app.js"></script>
   </body>
 </html>
