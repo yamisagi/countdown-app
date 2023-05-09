@@ -10,6 +10,12 @@ const countdownInput = document.querySelector('#countdown-input');
 // And we create an empty variable for the countdown date
 
 let countdownDate;
+// We create a variable for the countdown status to keep track of the countdown
+let isCountdownInProgress = false;
+// We create a variable for the countdown is done or not
+let isCountdownDone = false;
+// We create a variable for the date is valid or not for ' NaN ' error
+let isDateValid = true;
 
 // We create a function to update the countdown every second
 function updateCountdown() {
@@ -40,7 +46,17 @@ function updateCountdown() {
     secondsSpan.textContent = seconds < 10 ? '0' + seconds : seconds;
 
     // And we add a message when the countdown is over 🎉
+    // We check if the difference is less than or equal to 0
+    // If it is less than or equal to 0, we set isCountdownDone to true
+    // And we set isCountdownInProgress to false
+    // Because we do not want the countdown to continue after it is over
+    // And we do not want the countdown to start again when the countdown is over
+
     if (difference <= 0) {
+        isCountdownDone = true;
+        isCountdownInProgress = false;
+    }
+    if (isCountdownDone) {
         // Here we clear the interval so that the countdown stops
         clearInterval(countdownInterval);
         // And we assign the values to 00 so that it looks better
@@ -50,13 +66,15 @@ function updateCountdown() {
         // And we add the message
         countdownTimer.textContent = 'Countdown is over!';
 
-        // We remove the message after 5 seconds so that it does not stay there forever
+        // We remove the message after 3 seconds so that it does not stay there forever
         // Who wants to see a message that says "Countdown is over!" forever 🤷🏻‍♂️
         setTimeout(() => {
-            countdownTimer.textContent = '';
+            countdownTimer.textContent = 'You can reload the page to start a new countdown!';
         }
-            , 5000);
+            , 3000);
+        // 3000 milliseconds = 3 seconds
     }
+
 }
 
 // We create a variable for the countdown interval
@@ -72,9 +90,49 @@ countdownForm.addEventListener('submit', (e) => {
 
     e.preventDefault();
 
-    // And we assign the countdown date to the countdownDate variable
-    // We use the getTime() method to get the time in milliseconds
-
+    if (isCountdownInProgress) {
+        // If the countdown is in progress, we do nothing and return
+        return;
+    }
     countdownDate = new Date(countdownInput.value).getTime();
-    countdownInterval = setInterval(updateCountdown, 1000);
+
+
+    // If the countdown date is not valid, we show an error message
+    // And we clear the interval so that the countdown stops
+    if (isNaN(countdownDate)) {
+        isDateValid = false;
+        countdownTimer.textContent = 'Please enter a valid date!';
+        clearInterval(countdownInterval);
+
+        // We remove the message after 3 seconds so that it does not stay there forever
+        setTimeout(() => {
+            countdownTimer.textContent = '';
+            // Same here we reload the page so that the countdown timer is visible again
+
+            location.reload();
+        }
+            , 3000);
+    } else if (countdownDate < new Date().getTime()) {
+        isDateValid = false;
+        countdownTimer.textContent = 'Please select a date in the future!';
+        clearInterval(countdownInterval);
+
+        // We remove the message after 3 seconds so that it does not stay there forever
+        
+        setTimeout(() => {
+            countdownTimer.textContent = '';
+            // Same here we reload the page so that the countdown timer is visible again
+
+            location.reload();
+        }
+            , 3000);
+    } else {
+        // Here if the countdown date is valid, we start the countdown
+        // And set isCountdownDone to false
+
+        isDateValid = true;
+        countdownInterval = setInterval(updateCountdown, 1000);
+        isCountdownInProgress = true;
+        isCountdownDone = false;
+    }
 });
